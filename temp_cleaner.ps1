@@ -42,8 +42,14 @@ Limpar-Temp "$env:TEMP" ".tmp"
 # Limpar a pasta Temp no diretório do Windows, ignorando arquivos .log
 Limpar-Temp "C:\Windows\Temp" ".log"
 
-# Executar a Limpeza de Disco
-Write-Host "Executando Limpeza de Disco..." -ForegroundColor Cyan
+
+# Esvaziar a Lixeira
+Write-Host "Esvaziando a Lixeira..." -ForegroundColor Cyan
+Remove-Item "$env:SystemDrive\$Recycle.Bin\*" -Recurse -Force -ErrorAction SilentlyContinue
+
+# Executar a Limpeza de Disco com arquivos de sistema
+Write-Host "Executando Limpeza de Disco Completa..." -ForegroundColor Cyan
+Start-Process -FilePath "cleanmgr.exe" -ArgumentList "/sageset:1" -Wait
 Start-Process -FilePath "cleanmgr.exe" -ArgumentList "/sagerun:1" -Wait
 
-Write-Host "Processo concluído!" -ForegroundColor Green
+
