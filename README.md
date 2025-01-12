@@ -25,7 +25,7 @@ Este é um **script PowerShell** que realiza uma limpeza automatizada das pastas
 No PowerShell, navegue até o diretório onde o script está salvo e execute o comando:
 
 ```powershell
-.\cleaner.ps1
+.\temp_cleaner.ps1
 ```
 
 ---
